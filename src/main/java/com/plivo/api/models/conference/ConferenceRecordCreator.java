@@ -12,6 +12,7 @@ public class ConferenceRecordCreator extends Creator<ConferenceRecordCreateRespo
 
   @JsonIgnore
   private final String conferenceName;
+  private Integer timeLimit;
   private String fileFormat;
   private String transcriptionType;
   private String transcriptionUrl;
@@ -21,6 +22,10 @@ public class ConferenceRecordCreator extends Creator<ConferenceRecordCreateRespo
 
   public ConferenceRecordCreator(String conferenceName) {
     this.conferenceName = conferenceName;
+  }
+
+  public Integer timeLimit() {
+    return timeLimit;
   }
 
   public String fileFormat() {
@@ -45,6 +50,11 @@ public class ConferenceRecordCreator extends Creator<ConferenceRecordCreateRespo
 
   public String callbackMethod() {
     return this.callbackMethod;
+  }
+
+  public ConferenceRecordCreator timeLimit(Integer timeLimit) {
+    this.timeLimit = timeLimit;
+    return this;
   }
 
   public ConferenceRecordCreator fileFormat(final String fileFormat) {

@@ -1,9 +1,9 @@
 package com.plivo.api;
 
-import static junit.framework.TestCase.assertEquals;
-
 import com.plivo.api.models.conference.Conference;
 import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class ConferenceTest extends BaseTest {
 
@@ -363,6 +363,7 @@ public class ConferenceTest extends BaseTest {
     final String confId = "confId";
 
     Conference.recorder(confId)
+      .timeLimit(60)
       .record();
 
     assertRequest("POST", "Conference/%s/Record/", confId);
@@ -375,6 +376,7 @@ public class ConferenceTest extends BaseTest {
     PlivoClient client = new PlivoClient("MA123456789012345678", "Zmxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
     Conference.recorder(confId)
+      .timeLimit(60)
       .client(client)
       .record();
 
